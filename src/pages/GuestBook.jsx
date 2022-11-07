@@ -25,14 +25,14 @@ const GuestBook = () => {
                 <input type="text" name="" id="" placeholder="이름" onChange={(e) => {setName(e.target.value)}} />
                 <input type="text" name="" id="" placeholder="내용을 작성해주세요" onChange={(e) => {setComment(e.target.value)}} />
                 <button onClick={() => {addComment()}}>작성</button>
-
-                <ul>
-                    {commentlist ? (commentlist.map((comment) => (
-                        <li>{comment.name}: {comment.comment} {comment.date}</li>
-                    ))):
-                    ""}
-                </ul>
             </div>
+            <hr />
+            <ul>
+                {commentlist ? (commentlist.map((comment) => (
+                    <li>{comment.name}: {comment.comment} {comment.date}</li>
+                ))):
+                ""}
+            </ul>
         </>
     );
 }
