@@ -3,24 +3,32 @@ import { createSlice } from "@reduxjs/toolkit";
 export const addcomment = createSlice({
     name: 'addcomment',
     initialState: {
-        value: 0,
-        name: "",
-        text: "",
-        date: ""
+        commentlist: [
+            {
+                name: null,
+                comment: null,
+                date: null
+            }
+        ]
     },
     reducers: {
-        addname: (state, action) => {
-            state.name += action.payload
+        write: (state, action) => {
+            const morecomment = {
+                name: action.payload.name,
+                comment: action.payload.comment,
+                date: state.date += (new Date().getMonth() + 1) + (new Date().getDay())
+            }
+            const newComment = state.commentlist.concat(morecomment);
+            return {
+                ...state, commentlist: newComment
+            }
         },
-        addtext: (state, action) => {
-            state.text += action.payload
-        },
-        adddate: (state) => {
-            state.date = (new Date().getMonth() + 1) + "/" + (new Date().getDay())
+        default: (state) => {
+            return state;
         }
     }
 });
 
-export const { addname, addtext, adddate } = addcomment.actions;
+export const { write } = addcomment.actions;
 
 export default addcomment.reducer;

@@ -1,11 +1,19 @@
+import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addname, addtext, adddate } from "../Modules/addcomment";
+import { write } from "../Modules/addcomment"
 
 const GuestBook = () => {
-    const name = useSelector((state) => state.addcomment.name);
-    const text = useSelector((state) => state.addcomment.text);
-    const date = useSelector((state) => state.addcomment.date);
+    const commentlist = useSelector((state) => state.addcomment.commentlist);
+
+    const [name, setName] = useState(commentlist[0]?.name);
+    const [comment, setComment] = useState(commentlist[0]?.comment);
+    const [date, setDate] = useState(commentlist[0]?.date);
+
     const dispatch = useDispatch();
+
+    const addComment = useCallback(() => {
+        dispatch(write({name: name, comment: comment, date: date}))
+    }, [dispatch, name, comment, date]);
 
     return (
         <>
@@ -13,13 +21,14 @@ const GuestBook = () => {
             <hr />
             <div>
                 <span>이름</span>
-                <input type="text" name="" id="" placeholder="이름" onChange={(e) => {dispatch(addname(e.target.value))}} />
-                <input type="text" name="" id="" placeholder="내용을 작성해주세요" onChange={(e) => {dispatch(addtext(e.target.value))}} />
-                <button>작성</button>
-                <button onClick={() => {dispatch(adddate())}}>날짜 테스트</button>
+                <input type="text" name="" id="" placeholder="이름" onChange={(e) => {setName(e.target.value)}} />
+                <input type="text" name="" id="" placeholder="내용을 작성해주세요" onChange={(e) => {setComment(e.target.value)}} />
+                <button onClick={() => {addComment()}}>작성</button>
 
                 <ul>
-                    <li>{name}{text}{date}</li>
+                    {commentlist && (commentlist.map((comment) => (
+                        <li>{comment.name}{comment.comment}{comment.date}</li>
+                    )))}
                 </ul>
             </div>
         </>
