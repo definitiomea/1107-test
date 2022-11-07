@@ -4,11 +4,7 @@ export const addcomment = createSlice({
     name: 'addcomment',
     initialState: {
         commentlist: [
-            {
-                name: null,
-                comment: null,
-                date: null
-            }
+            
         ]
     },
     reducers: {
@@ -16,7 +12,7 @@ export const addcomment = createSlice({
             const morecomment = {
                 name: action.payload.name,
                 comment: action.payload.comment,
-                date: state.date += (new Date().getMonth() + 1) + (new Date().getDay())
+                date: (new Date().getMonth() + 1) + "/" + (new Date().getDate())
             }
             const newComment = state.commentlist.concat(morecomment);
             return {

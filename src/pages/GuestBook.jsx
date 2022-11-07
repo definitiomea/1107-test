@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { write } from "../Modules/addcomment"
 
 const GuestBook = () => {
@@ -26,9 +27,10 @@ const GuestBook = () => {
                 <button onClick={() => {addComment()}}>작성</button>
 
                 <ul>
-                    {commentlist && (commentlist.map((comment) => (
-                        <li>{comment.name}{comment.comment}{comment.date}</li>
-                    )))}
+                    {commentlist ? (commentlist.map((comment) => (
+                        <li>{comment.name}: {comment.comment} {comment.date}</li>
+                    ))):
+                    ""}
                 </ul>
             </div>
         </>
