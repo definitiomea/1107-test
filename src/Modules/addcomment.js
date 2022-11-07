@@ -13,7 +13,7 @@ export const addcomment = createSlice({
             state.name += action.payload
         },
         addtext: (state, action) => {
-            state.comment += action.payload
+            state.text += action.payload
         },
         adddate: (state) => {
             state.date = (new Date().getMonth() + 1) + "/" + (new Date().getDay())
