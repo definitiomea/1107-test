@@ -8,6 +8,10 @@ const GuestBook = () => {
                 <input type="text" name="" id="" placeholder="이름" />
                 <input type="text" name="" id="" placeholder="내용을 작성해주세요" />
                 <button>작성</button>
+
+                <ul>
+                    
+                </ul>
             </div>
         </>
     );
