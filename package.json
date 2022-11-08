@@ -40,7 +40,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://definitiomea.github.io/1107-test",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }
