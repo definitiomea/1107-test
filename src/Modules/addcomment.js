@@ -28,3 +28,23 @@ export const addcomment = createSlice({
 export const { write } = addcomment.actions;
 
 export default addcomment.reducer;
+
+/* 강사님 풀이: redux toolkit을 쓰지는 않았음
+
+const initialState = {
+    memoList : [
+        {
+            date: new Date(),
+            name: "green",
+            text: "방명록입니다"
+        }
+    ]
+}
+
+const memos = (state = initialState, action) => {
+    switch(action.type) {
+        case 'addmemo':
+            return {...state, memoList: state.memoList.concat(action.payload)}
+    }
+}
+*/
