@@ -38,3 +38,17 @@ const GuestBook = () => {
 }
 
 export default GuestBook;
+
+/* 강사님 풀이:
+form으로 작업해주었음.
+
+<form>
+    <label htmlfor="">이름</label>
+    <input type="text" size={5} />
+    <input type="text" />
+    <input type="submit" value="작성" />
+    <hr />
+    <ul>
+        <li>이름: 내용 날짜</li>
+    </ul>
+</form>*/
