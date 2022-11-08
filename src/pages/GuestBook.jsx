@@ -42,7 +42,22 @@ export default GuestBook;
 /* 강사님 풀이:
 form으로 작업해주었음.
 
-<form>
+const [name, setName] = useState();
+const [text, setText] = useState();
+
+const state = useSelector((state) => state.memoList);
+const dispatch = useDispatch();
+
+const addMemo = (e) => {
+    e.preventDefault();
+    dispatch(addmemo({
+        date: new Date(),
+        name: name,
+        text: text
+    }))
+}
+
+<form onSubmit={addMemo}>
     <label htmlfor="">이름</label>
     <input type="text" size={5} />
     <input type="text" />
