@@ -41,10 +41,17 @@ const initialState = {
     ]
 }
 
+액션 함수
+export const addmemo = (memo) => ({type: "addmemo", payload: memo})
+
 const memos = (state = initialState, action) => {
     switch(action.type) {
         case 'addmemo':
             return {...state, memoList: state.memoList.concat(action.payload)}
     }
 }
+
+export default memos;
+
+아직은 어떤 값이 들어갈지 지정 X, memo 페이지에서 state 값을 사용해야 한다.
 */
